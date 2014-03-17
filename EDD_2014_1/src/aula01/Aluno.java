@@ -1,5 +1,7 @@
 package aula01;
 
+import java.util.ArrayList;
+
 public class Aluno {
 	private String nome;
 	private String email;
@@ -54,37 +56,11 @@ public class Aluno {
 		alunos[1] = aluno2;
 		
 		
-		// Percorrer vetor		
+		// Percorrer vetor (for each)		
 		for (Aluno a : alunos) {
 			if (a != null) {
 				System.out.println( "Nome do aluno: " + a.getNome() );
 			}
 		}
-		
-		
-		
 	}
-	
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
