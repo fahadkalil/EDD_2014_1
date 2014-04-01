@@ -33,6 +33,43 @@ public class VetorDinamico {
 		return vet[indice];
 	}
 	
+	public void limpar() {
+		for (int i = 0; i < vet.length; i++) {
+			vet[i] = -1;
+		}
+		quantidade = 0;				
+	}
+	
+	public int remover(int indice) {		
+		// Verifica se o índice passado por parâmetro existe no vetor
+		if (indice < vet.length) {
+			if (indice < quantidade) {				
+				// Guarda numa variável o valor armazenado na posição
+				int valor = vet[indice];
+				
+				// Reorganiza o vetor.... (Observar no quadro)
+				for (int i=indice; i<(vet.length-1); i++) {										
+					vet[i] = vet[i+1];
+				}
+				
+				// Decrementa o contador (quantidade)
+				quantidade--;
+				
+				return valor;
+			}
+		} else {
+			System.err.println("Posição não preenchida");			
+		}
+		
+		return -1;
+				
+	}
+	
+	
+	
+	
+	
+	
 	public static void main(String[] args) {
 		VetorDinamico v = new VetorDinamico();
 		v.add(298);
@@ -45,5 +82,18 @@ public class VetorDinamico {
 		for (int i=0; i<10; i++) {
 			System.out.println(v.getValor(i));
 		}
+		
+		/*v.limpar();
+		System.out.println("=== Após limpar(): ===");
+		for (int i=0; i<10; i++) {
+			System.out.println(v.getValor(i));
+		}*/
+		
+		v.remover(1);
+		System.out.println("=== Após remover(): ===");
+		for (int i=0; i<10; i++) {
+			System.out.println(v.getValor(i));
+		}
+		
 	}
 }
