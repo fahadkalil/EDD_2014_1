@@ -16,12 +16,20 @@ public class BubbleSort implements IOrdenador {
 		return "BubbleSort";
 	}
 	
-	public static void main(String[] args) {
-		BubbleSort b = new BubbleSort();
+	public static void main(String[] args) {				
+		IOrdenador b = new InsertionSort();
+		
 		int[] v = b.sort(new int[]{33, 40, 8, 22, 30});
 		for (int item : v) {
 			System.out.println(item);
 		}
 		
 	}
+	
+	
+	
+	
+	
+	
+	
 }
