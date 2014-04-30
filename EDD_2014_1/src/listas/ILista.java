@@ -8,5 +8,7 @@ public interface ILista {
 	public Nodo removerInicio();
 	public Nodo removerFim();
 	
+	public Nodo buscar(Nodo elemento);
+	
 	public void imprimir();
 }
