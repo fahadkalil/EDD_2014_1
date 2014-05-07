@@ -34,17 +34,36 @@ public class LDE<T> implements ILista {
 					DNodo aux = trailer.getPrev();
 					aux.setNext(elemento);
 					elemento.setNext(trailer);
-					trailer.setPrev((DNodo)elemento);
 					((DNodo) elemento).setPrev(aux);
+					trailer.setPrev((DNodo)elemento);
+					
 				}
 			}
 		}
 	}
 	
 	@Override
-	public Nodo removerInicio() {
-		// TODO Auto-generated method stub
-		return null;
+	public Nodo removerInicio() {		
+		DNodo a = null;
+		
+		// Lista vazia não estiver vazia
+		if (header.getNext() != null || trailer.getPrev() != null) {		
+			a = (DNodo) header.getNext(); /* alvo */
+			
+			/* Se não tivermos mais elementos */
+			if (a.getNext() == null) {				
+				return null;
+			}
+			
+			DNodo b = (DNodo) a.getNext(); /* segundo elemento */
+			header.setNext(b);			
+			b.setPrev(header);
+			
+			// Elimina os ponteiros do elemento
+			a.setNext(null);
+			a.setPrev(null);			
+		}				
+		return a;
 	}
 
 	@Override
@@ -80,8 +99,8 @@ public class LDE<T> implements ILista {
 		LDE<String> lista = new LDE<String>();
 		lista.inserirFim(new DNodo<String>("abc"));		
 		lista.inserirFim(new DNodo<String>("def"));
-		lista.imprimir();
-		
+				
+		lista.imprimir();		
 	}
 	
 }
